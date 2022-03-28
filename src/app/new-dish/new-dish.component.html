@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col m6 offset-m3 s12" *ngIf="!showForm">
+    <a (click)="showForm=true" class="btn-floating btn-large waves-effect waves-light green">
+      <i class="material-icons" > add</i>
+    </a>
+  </div>
+  <div class="col m6 offset-m3 s12 my-form" *ngIf="showForm">
+    <form #myForm="ngForm" novalidate (ngSubmit)="onSubmit(myForm)"
+    (ngSubmit)="onSubmit(myForm)">
+      <h5>New dish</h5>
+      <div class="input-field">
+        <input id="dish_name" name="dish_name" ngModel required type="text">
+        <label for="dish_name">Dish name</label>
+      </div>
+      <div class="input-field">
+        <input id="dish_type" name="dish_type" ngModel required type="text">
+        <label for="dish_type">Dish type</label>
+      </div>
+      <div class="input-field">
+        <input id="dish_weight" name="dish_weight" ngModel required type="text">
+        <label for="dish_weight">Dish weight</label>
+      </div>
+      <div class="input-field">
+        <input id="dish_amount" name="dish_amount" ngModel required type="number">
+        <label for="dish_amount">Dish amount</label>
+      </div>
+      <div class="input-field">
+        <button type="button" (click)="showForm=false"
+        class="rem-row btn-floating waves-effect waves-light left blue-grey">
+          <i class="material-icons"> keyboard_arrow_up</i>
+        </button>
+        <button type="submit" [disabled]="myForm.invalid"
+        class="rem-row btn-floating waves-effect waves-light green right">
+          <i class="material-icons">done</i>
+
+        </button>
+
+      </div>
+
+    </form>
+  </div>
+</div>

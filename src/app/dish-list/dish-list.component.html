@@ -1,0 +1,6 @@
+<h5 class="center-align"> Dish list </h5>
+<app-new-dish></app-new-dish>
+<app-dish
+      *ngFor="let dish of dishes; let i = index"
+       [dish]="dish" [dshIndex]="i">
+</app-dish>

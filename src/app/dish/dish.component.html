@@ -1,0 +1,56 @@
+<div class = "row">
+<div class = "col m3 s6 offset-m3 center-align">
+  <h5>{{dish.dish_name}}</h5>
+</div>
+<div class="col m3 s6 center-align">
+   <a class="btn-floating waves-effect waves-light blue"
+      (click)="showInfo=!showInfo">
+      <i *ngIf="showInfo" class ="material-icons">
+          keyboard_arrow_up
+      </i>
+      <i *ngIf="!showInfo" class ="material-icons" >
+          keyboard_arrow_down
+      </i>
+   </a>
+   <a [routerLink] ="'/component/'+dish.dish_name"
+   class="btn-floating waves-effect waves-light blue-grey">
+     <i class="material-icons">
+       view_headline
+     </i>
+   </a>
+
+</div>
+</div>
+<div class=" row info" *ngIf="showInfo">
+   <div class="col m6 offset-m3 s12">
+      <div class="input-filed">
+         <input id="dish_name" [(ngModel)] = "dish.dish_name"
+          type="text" class = "validate">
+          <label for="dish_name" class="active" > dish_name </label>
+
+      </div>
+      <div class="input-filed">
+         <input id="dish_type" [(ngModel)] = "dish.dish_type"
+          type="text" class = "validate">
+          <label for="dish_type" class="active" > dish_type </label>
+
+      </div>
+      <div class="input-filed">
+         <input id="dish_weight" [(ngModel)] = "dish.dish_weight"
+          type="text" class = "validate">
+          <label for="dish_weight" class="active" > dish_weight </label>
+
+      </div>
+      <div class="input-filed">
+         <input id="dish_amount" [(ngModel)] = "dish.dish_amount"
+          type="number" class = "validate">
+          <label for="dish_amount" class="active" > dish_amount </label>
+
+      </div>
+      <a class="rew-row btn-floating waves-effect waves-light red" (click)="delDish()" >
+         <i class="material-icons" > delete</i>
+      </a>
+   </div>
+
+</div>
+
